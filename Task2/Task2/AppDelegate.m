@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "RKNavigationController.h"
+
+#import "RKContactsViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    RKContactsViewController *vc = [[RKContactsViewController alloc] init];
+    RKNavigationController *nvc = [[RKNavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nvc;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
