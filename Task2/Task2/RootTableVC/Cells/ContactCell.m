@@ -8,10 +8,6 @@
 
 #import "ContactCell.h"
 
-@interface ContactCell ()
-
-@end
-
 
 @implementation ContactCell
 
@@ -26,5 +22,7 @@
 
     // Configure the view for the selected state
 }
+
+
 
 @end

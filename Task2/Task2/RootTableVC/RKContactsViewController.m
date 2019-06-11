@@ -50,7 +50,10 @@
     if(section < self.dataSource.count)
     {
         ContactsData * sectionItem = [self.dataSource objectAtIndex:section];
-        return sectionItem.contacts.count;
+        if (sectionItem.isOpen) {
+            return sectionItem.contacts.count;
+        }
+        return 0;
     }
     
     return 0;
@@ -60,7 +63,6 @@
     ContactCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cell];
 
     ContactsData * data = [self.dataSource objectAtIndex:indexPath.section];
-    
     cell.nameLable.text = [NSString stringWithFormat:@"%@ %@",data.contacts[indexPath.row].givenName, data.contacts[indexPath.row].familyName];
     return cell;
 }
@@ -70,9 +72,44 @@
     ContactsData * sectionItem = [self.dataSource objectAtIndex:section];
     view.sectionNameLable.text = sectionItem.sectionName.uppercaseString;
     view.quantityLable.text = [NSString stringWithFormat:@"%ld", sectionItem.contacts.count];
+    [view.arrowButton addTarget:self action:@selector(headerButtonPushed:) forControlEvents:UIControlEventTouchUpInside];
+    view.arrowButton.tag = section;
+    UIImage* upArrow = [UIImage imageNamed:@"arrow_up"];
+    UIImage* downArrow = [UIImage imageNamed:@"arrow_down"];
+    
+    if (!sectionItem.isOpen) {
+        UIColor* yellow = [UIColor colorWithRed:217.f/256 green:145.f/256 blue:0.f alpha: 1.f];
+        view.sectionNameLable.textColor = yellow;
+        view.contactsLable.textColor = yellow;
+        view.quantityLable.textColor = yellow;
+        [view.arrowButton setBackgroundImage:upArrow forState:UIControlStateNormal];
+    } else {
+        UIColor* lightGray = [UIColor colorWithRed:153.f/256 green:153.f/256 blue:153.f/256 alpha: 1.f];
+        view.sectionNameLable.textColor = [UIColor blackColor];
+       view.contactsLable.textColor = lightGray;
+        view.quantityLable.textColor = lightGray;
+        [view.arrowButton setBackgroundImage:downArrow forState:UIControlStateNormal];
+    }
     return view;
 }
 
+- (void)headerButtonPushed:(UIButton*) button{
+    NSLog(@"Button in section %ld pushed", button.tag );
+    NSMutableArray<NSIndexPath*> *indexPaths = [NSMutableArray array];
+    for ( NSUInteger i = 0; i < self.dataSource[button.tag].contacts.count; i++ ){
+        NSIndexPath* index = [NSIndexPath indexPathForRow:i inSection:button.tag];
+        [indexPaths addObject:index];
+    }
+    if (self.dataSource[button.tag].isOpen) {
+        self.dataSource[button.tag].isOpen = !self.dataSource[button.tag].isOpen;
+        [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
+    } else {
+        self.dataSource[button.tag].isOpen = !self.dataSource[button.tag].isOpen;
+        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
+    }
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:button.tag] withRowAnimation:UITableViewRowAnimationNone];
+
+}
 
 
 /*
@@ -108,8 +145,9 @@
 
  #pragma mark - Table view delegate
  
- // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+     UIColor *hower = [UIColor colorWithRed:254.f/256 green:246.f/256 blue:230.f/256 alpha: 1.f];
+     [tableView cellForRowAtIndexPath:indexPath].contentView.backgroundColor = hower;
     
      ContactsData * data = [self.dataSource objectAtIndex:indexPath.section];
      
@@ -125,15 +163,11 @@
  }
  
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView cellForRowAtIndexPath:indexPath].contentView.backgroundColor = [UIColor whiteColor];
+
+}
 
 - (void)accesDenied {
 }
