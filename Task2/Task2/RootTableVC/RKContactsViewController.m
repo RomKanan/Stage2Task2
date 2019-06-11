@@ -90,47 +90,40 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 70.0;
 }
-/*
- // Override to support editing the table view.
+
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
  if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
+     [self.dataSource[indexPath.section].contacts removeObjectAtIndex:indexPath.row];
+     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     if (self.dataSource[indexPath.section].contacts.count == 0) {
+         [self.dataSource removeObjectAtIndex:indexPath.section];
+         [tableView deleteSections:([NSIndexSet indexSetWithIndex:indexPath.section]) withRowAnimation:UITableViewRowAnimationFade];
+     }
+     [tableView reloadData];
+    }
 
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
  }
- */
 
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
-/*
+
  #pragma mark - Table view delegate
  
  // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
- // Navigation logic may go here, for example:
- // Create the next view controller.
- <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
- 
- // Pass the selected object to the new view controller.
- 
- // Push the view controller.
- [self.navigationController pushViewController:detailViewController animated:YES];
+    
+     ContactsData * data = [self.dataSource objectAtIndex:indexPath.section];
+     
+     NSString *name  = [NSString stringWithFormat:@"%@ %@",data.contacts[indexPath.row].givenName, data.contacts[indexPath.row].familyName];
+     
+     NSString *number = data.contacts[indexPath.row].phoneNumbers.firstObject.value.stringValue;
+     
+     UIAlertController *alert = [UIAlertController alertControllerWithTitle:name message:number preferredStyle:UIAlertControllerStyleAlert];
+     
+     UIAlertAction* action =  [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+     [alert addAction:action];
+     [self presentViewController:alert animated:YES completion:nil];
  }
- */
+ 
 
 /*
  #pragma mark - Navigation
