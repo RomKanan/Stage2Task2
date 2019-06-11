@@ -28,7 +28,7 @@
     return self;
 }
 
--(void)beginFethingData {
+-(void)beginFetchingData {
     
     __weak typeof(self) weakSelf = self;
 

@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<ContactSourceDelegate> delegate;
 
--(void)beginFethingData;
+-(void)beginFetchingData;
 
 @end
 

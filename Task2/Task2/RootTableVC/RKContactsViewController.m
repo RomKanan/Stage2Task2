@@ -9,21 +9,34 @@
 #import "RKContactsViewController.h"
 #import "ContactsSource.h"
 #import "ContactsData.h"
+#import "ContactCell.h"
+#import "HeaderView.h"
+
 
 
 @interface RKContactsViewController () <ContactSourceDelegate>
 
 @property (nonatomic, strong) NSMutableArray<ContactsData *> *dataSource;
-
+@property (nonatomic, strong) ContactsSource* contactsSource;
+@property (nonatomic, strong) NSString* cell;
 @end
 
 @implementation RKContactsViewController
 
 - (void)viewDidLoad {
+    
+    self.navigationItem.title = @"Контакты";
+    [self.navigationController navigationBar].barTintColor = [UIColor whiteColor];
     [super viewDidLoad];
-    ContactsSource* contactsSource = [[ContactsSource alloc] init];
-    contactsSource.delegate = self;
-    [contactsSource beginFethingData];
+    self.contactsSource = [[ContactsSource alloc] init];
+    self.contactsSource.delegate = self;
+    [self.contactsSource beginFetchingData];
+    
+    self.cell = @"contactCell";
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ContactCell" bundle:nil] forCellReuseIdentifier:self.cell];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"header"];
     
 }
 
@@ -44,33 +57,23 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if(!cell)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-    
-    
+    ContactCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cell];
+
     ContactsData * data = [self.dataSource objectAtIndex:indexPath.section];
     
-    cell.textLabel.text = data.contacts[indexPath.row].givenName;
+    cell.nameLable.text = [NSString stringWithFormat:@"%@ %@",data.contacts[indexPath.row].givenName, data.contacts[indexPath.row].familyName];
     return cell;
 }
 
-//-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    
-//}
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    HeaderView * view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"header"];
+    ContactsData * sectionItem = [self.dataSource objectAtIndex:section];
+    view.sectionNameLable.text = sectionItem.sectionName.uppercaseString;
+    view.quantityLable.text = [NSString stringWithFormat:@"%ld", sectionItem.contacts.count];
+    return view;
+}
 
-/*
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
- 
- // Configure the cell...
- 
- return cell;
- }
- */
+
 
 /*
  // Override to support conditional editing of the table view.
@@ -80,6 +83,13 @@
  }
  */
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 60.0;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 70.0;
+}
 /*
  // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

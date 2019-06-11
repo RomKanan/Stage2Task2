@@ -1,8 +1,8 @@
 //
-//  ContactCell.h
+//  AccesController.h
 //  Task2
 //
-//  Created by Roma on 6/10/19.
+//  Created by Roma on 6/11/19.
 //  Copyright © 2019 Roman. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ContactCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *nameLable;
-
+@interface AccesController : UIViewController
 
 @end
 

@@ -8,7 +8,13 @@
 
 #import "ContactCell.h"
 
+@interface ContactCell ()
+
+@end
+
+
 @implementation ContactCell
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
