@@ -13,7 +13,6 @@
 		A0EA9DBD22AD568B004F32C4 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EA9DBC22AD568B004F32C4 /* Contacts.framework */; };
 		A0EA9DC422AD57C4004F32C4 /* RKContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EA9DC222AD57C4004F32C4 /* RKContactsViewController.m */; };
 		A0EA9DC522AD57C4004F32C4 /* RKContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EA9DC322AD57C4004F32C4 /* RKContactsViewController.xib */; };
-		A0EA9DCA22AE6D68004F32C4 /* RKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EA9DC922AE6D68004F32C4 /* RKNavigationController.m */; };
 		A0EA9DD022AEA5EA004F32C4 /* ContactsData.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EA9DCF22AEA5EA004F32C4 /* ContactsData.m */; };
 		A0EA9DD322AEA7DC004F32C4 /* ContactsSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EA9DD222AEA7DC004F32C4 /* ContactsSource.m */; };
 		A0EA9DDF22AEFA2D004F32C4 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EA9DDD22AEFA2D004F32C4 /* ContactCell.m */; };
@@ -23,6 +22,12 @@
 		A0EA9E0B22AF0C69004F32C4 /* AccesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EA9E0922AF0C69004F32C4 /* AccesController.xib */; };
 		A0EA9E0E22AF1098004F32C4 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EA9E0D22AF1098004F32C4 /* HeaderView.m */; };
 		A0EA9E1222AF160B004F32C4 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EA9E1122AF160B004F32C4 /* HeaderView.xib */; };
+		A0EA9E1E22AF55B2004F32C4 /* InfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EA9E1C22AF55B2004F32C4 /* InfoController.m */; };
+		A0EA9E1F22AF55B2004F32C4 /* InfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EA9E1D22AF55B2004F32C4 /* InfoController.xib */; };
+		A0EA9E2422AF5685004F32C4 /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EA9E2222AF5685004F32C4 /* InfoCell.m */; };
+		A0EA9E2522AF5685004F32C4 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EA9E2322AF5685004F32C4 /* InfoCell.xib */; };
+		A0EA9E2922AF5699004F32C4 /* PhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EA9E2722AF5699004F32C4 /* PhoneCell.m */; };
+		A0EA9E2A22AF5699004F32C4 /* PhoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EA9E2822AF5699004F32C4 /* PhoneCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +41,6 @@
 		A0EA9DC122AD57C4004F32C4 /* RKContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RKContactsViewController.h; sourceTree = "<group>"; };
 		A0EA9DC222AD57C4004F32C4 /* RKContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RKContactsViewController.m; sourceTree = "<group>"; };
 		A0EA9DC322AD57C4004F32C4 /* RKContactsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RKContactsViewController.xib; sourceTree = "<group>"; };
-		A0EA9DC822AE6D68004F32C4 /* RKNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RKNavigationController.h; sourceTree = "<group>"; };
-		A0EA9DC922AE6D68004F32C4 /* RKNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RKNavigationController.m; sourceTree = "<group>"; };
 		A0EA9DCE22AEA5EA004F32C4 /* ContactsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsData.h; sourceTree = "<group>"; };
 		A0EA9DCF22AEA5EA004F32C4 /* ContactsData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsData.m; sourceTree = "<group>"; };
 		A0EA9DD122AEA7DC004F32C4 /* ContactsSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactsSource.h; sourceTree = "<group>"; };
@@ -52,6 +55,15 @@
 		A0EA9E0C22AF1098004F32C4 /* HeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		A0EA9E0D22AF1098004F32C4 /* HeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		A0EA9E1122AF160B004F32C4 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		A0EA9E1B22AF55B2004F32C4 /* InfoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoController.h; sourceTree = "<group>"; };
+		A0EA9E1C22AF55B2004F32C4 /* InfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoController.m; sourceTree = "<group>"; };
+		A0EA9E1D22AF55B2004F32C4 /* InfoController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoController.xib; sourceTree = "<group>"; };
+		A0EA9E2122AF5685004F32C4 /* InfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = "<group>"; };
+		A0EA9E2222AF5685004F32C4 /* InfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoCell.m; sourceTree = "<group>"; };
+		A0EA9E2322AF5685004F32C4 /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		A0EA9E2622AF5699004F32C4 /* PhoneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhoneCell.h; sourceTree = "<group>"; };
+		A0EA9E2722AF5699004F32C4 /* PhoneCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhoneCell.m; sourceTree = "<group>"; };
+		A0EA9E2822AF5699004F32C4 /* PhoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,20 +99,16 @@
 			isa = PBXGroup;
 			children = (
 				A0EA9DA522AD5578004F32C4 /* AppDelegate.h */,
-				A0EA9E0C22AF1098004F32C4 /* HeaderView.h */,
-				A0EA9E0D22AF1098004F32C4 /* HeaderView.m */,
-				A0EA9E1122AF160B004F32C4 /* HeaderView.xib */,
 				A0EA9DA622AD5578004F32C4 /* AppDelegate.m */,
-				A0EA9DB022AD557A004F32C4 /* LaunchScreen.storyboard */,
 				A0EA9DB322AD557A004F32C4 /* Info.plist */,
 				A0EA9DB422AD557A004F32C4 /* main.m */,
 				A0EA9DCD22AEA596004F32C4 /* ContactsSource */,
 				A0EA9DC622AD57C9004F32C4 /* RootTableVC */,
-				A0EA9DCB22AE6D75004F32C4 /* NavigationController */,
+				A0EA9E1322AF4D30004F32C4 /* InfoViewController */,
+				A0EA9E1A22AF4DEE004F32C4 /* AcessController */,
+				A0EA9E1922AF4D99004F32C4 /* HeaderView */,
 				A0EA9DE322AEFE71004F32C4 /* Assets.xcassets */,
-				A0EA9E0722AF0C69004F32C4 /* AccesController.h */,
-				A0EA9E0822AF0C69004F32C4 /* AccesController.m */,
-				A0EA9E0922AF0C69004F32C4 /* AccesController.xib */,
+				A0EA9DB022AD557A004F32C4 /* LaunchScreen.storyboard */,
 			);
 			path = Task2;
 			sourceTree = "<group>";
@@ -124,15 +132,6 @@
 			path = RootTableVC;
 			sourceTree = "<group>";
 		};
-		A0EA9DCB22AE6D75004F32C4 /* NavigationController */ = {
-			isa = PBXGroup;
-			children = (
-				A0EA9DC822AE6D68004F32C4 /* RKNavigationController.h */,
-				A0EA9DC922AE6D68004F32C4 /* RKNavigationController.m */,
-			);
-			path = NavigationController;
-			sourceTree = "<group>";
-		};
 		A0EA9DCC22AE6E72004F32C4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +151,50 @@
 				A0EA9DCF22AEA5EA004F32C4 /* ContactsData.m */,
 			);
 			path = ContactsSource;
+			sourceTree = "<group>";
+		};
+		A0EA9E1322AF4D30004F32C4 /* InfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A0EA9E2022AF563E004F32C4 /* Cells */,
+				A0EA9E1B22AF55B2004F32C4 /* InfoController.h */,
+				A0EA9E1C22AF55B2004F32C4 /* InfoController.m */,
+				A0EA9E1D22AF55B2004F32C4 /* InfoController.xib */,
+			);
+			path = InfoViewController;
+			sourceTree = "<group>";
+		};
+		A0EA9E1922AF4D99004F32C4 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				A0EA9E0C22AF1098004F32C4 /* HeaderView.h */,
+				A0EA9E0D22AF1098004F32C4 /* HeaderView.m */,
+				A0EA9E1122AF160B004F32C4 /* HeaderView.xib */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		A0EA9E1A22AF4DEE004F32C4 /* AcessController */ = {
+			isa = PBXGroup;
+			children = (
+				A0EA9E0722AF0C69004F32C4 /* AccesController.h */,
+				A0EA9E0822AF0C69004F32C4 /* AccesController.m */,
+				A0EA9E0922AF0C69004F32C4 /* AccesController.xib */,
+			);
+			path = AcessController;
+			sourceTree = "<group>";
+		};
+		A0EA9E2022AF563E004F32C4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A0EA9E2122AF5685004F32C4 /* InfoCell.h */,
+				A0EA9E2222AF5685004F32C4 /* InfoCell.m */,
+				A0EA9E2322AF5685004F32C4 /* InfoCell.xib */,
+				A0EA9E2622AF5699004F32C4 /* PhoneCell.h */,
+				A0EA9E2722AF5699004F32C4 /* PhoneCell.m */,
+				A0EA9E2822AF5699004F32C4 /* PhoneCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,9 +255,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0EA9DE022AEFA2D004F32C4 /* ContactCell.xib in Resources */,
+				A0EA9E2522AF5685004F32C4 /* InfoCell.xib in Resources */,
 				A0EA9DC522AD57C4004F32C4 /* RKContactsViewController.xib in Resources */,
 				A0EA9DE422AEFE71004F32C4 /* Assets.xcassets in Resources */,
+				A0EA9E2A22AF5699004F32C4 /* PhoneCell.xib in Resources */,
 				A0EA9E1222AF160B004F32C4 /* HeaderView.xib in Resources */,
+				A0EA9E1F22AF55B2004F32C4 /* InfoController.xib in Resources */,
 				A0EA9E0B22AF0C69004F32C4 /* AccesController.xib in Resources */,
 				A0EA9DB222AD557A004F32C4 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -227,12 +273,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0EA9DCA22AE6D68004F32C4 /* RKNavigationController.m in Sources */,
 				A0EA9E0E22AF1098004F32C4 /* HeaderView.m in Sources */,
 				A0EA9DC422AD57C4004F32C4 /* RKContactsViewController.m in Sources */,
 				A0EA9DB522AD557A004F32C4 /* main.m in Sources */,
+				A0EA9E2922AF5699004F32C4 /* PhoneCell.m in Sources */,
+				A0EA9E2422AF5685004F32C4 /* InfoCell.m in Sources */,
 				A0EA9DD322AEA7DC004F32C4 /* ContactsSource.m in Sources */,
 				A0EA9DA722AD5578004F32C4 /* AppDelegate.m in Sources */,
+				A0EA9E1E22AF55B2004F32C4 /* InfoController.m in Sources */,
 				A0EA9DDF22AEFA2D004F32C4 /* ContactCell.m in Sources */,
 				A0EA9DD022AEA5EA004F32C4 /* ContactsData.m in Sources */,
 				A0EA9E0A22AF0C69004F32C4 /* AccesController.m in Sources */,
@@ -304,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -357,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

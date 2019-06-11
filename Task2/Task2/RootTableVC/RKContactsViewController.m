@@ -11,6 +11,9 @@
 #import "ContactsData.h"
 #import "ContactCell.h"
 #import "HeaderView.h"
+#import "AccesController.h"
+#import "InfoController.h"
+
 
 
 
@@ -19,6 +22,7 @@
 @property (nonatomic, strong) NSMutableArray<ContactsData *> *dataSource;
 @property (nonatomic, strong) ContactsSource* contactsSource;
 @property (nonatomic, strong) NSString* cell;
+@property (nonatomic, strong) NSMutableDictionary* infoButtons;
 @end
 
 @implementation RKContactsViewController
@@ -37,6 +41,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ContactCell" bundle:nil] forCellReuseIdentifier:self.cell];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"header"];
+    self.infoButtons = [[NSMutableDictionary alloc] init];
     
 }
 
@@ -64,7 +69,25 @@
 
     ContactsData * data = [self.dataSource objectAtIndex:indexPath.section];
     cell.nameLable.text = [NSString stringWithFormat:@"%@ %@",data.contacts[indexPath.row].givenName, data.contacts[indexPath.row].familyName];
+    NSString *textTag = [NSString stringWithFormat:@"1%ld%ld",indexPath.section, indexPath.row];
+   
+    cell.infoButton.tag = textTag.integerValue;
+    CNContact* contact = self.dataSource[indexPath.section].contacts[indexPath.row];
+    [self.infoButtons setObject:contact forKey:textTag];
+
+    [cell.infoButton addTarget:self action:@selector(infoButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
+}
+
+
+
+
+-(void)infoButtonSelected:(UIButton*)button{
+    NSString *textTag = [NSString stringWithFormat:@"%ld", button.tag];
+    CNContact* contact = [self.infoButtons objectForKey:textTag];
+    InfoController *vc = [[InfoController alloc] initWithContact:contact];
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -94,7 +117,6 @@
 }
 
 - (void)headerButtonPushed:(UIButton*) button{
-    NSLog(@"Button in section %ld pushed", button.tag );
     NSMutableArray<NSIndexPath*> *indexPaths = [NSMutableArray array];
     for ( NSUInteger i = 0; i < self.dataSource[button.tag].contacts.count; i++ ){
         NSIndexPath* index = [NSIndexPath indexPathForRow:i inSection:button.tag];
@@ -112,13 +134,6 @@
 }
 
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 60.0;
@@ -170,6 +185,8 @@
 }
 
 - (void)accesDenied {
+    AccesController *vc = [[AccesController alloc] init];
+    [self.navigationController pushViewController:vc animated:true];
 }
 
 - (void)contactsFetched:(NSMutableArray<ContactsData *> *)contacts {

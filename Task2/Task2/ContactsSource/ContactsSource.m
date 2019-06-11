@@ -52,7 +52,7 @@
     NSString *RuAlphabet = @"абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
     NSString *ENAlphabet = @"abcdefghijklmnopqrstuvwxyz";
     
-    CNContactFetchRequest* request = [[CNContactFetchRequest alloc] initWithKeysToFetch:@[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey, CNContactImageDataKey]];
+    CNContactFetchRequest* request = [[CNContactFetchRequest alloc] initWithKeysToFetch:@[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey, CNContactImageDataKey, CNContactImageDataAvailableKey]];
     
     self.store = [[CNContactStore alloc] init];
     

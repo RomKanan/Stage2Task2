@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ContactCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLable;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
 
 
 
